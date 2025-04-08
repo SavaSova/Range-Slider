@@ -1,59 +1,66 @@
-# Slider
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.2.
+## 📘 README.md — Инструкция по запуску
 
-## Development server
 
-To start a local development server, run:
+# 📅 Date Range Slider (Angular + PrimeNG + TailwindCSS)
+
+Компонент выбора диапазона дат с двумя режимами:
+- **Все года** — отображаются годы (2014–2021)
+- **Месяца** — отображаются месяцы (2015–2017)
+
+Реализовано с использованием:
+- Angular
+- PrimeNG
+- TailwindCSS
+
+---
+
+## 🚀 Как запустить проект
+
+### 1. Клонируйте репозиторий
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+```
+
+### 2. Установите зависимости
+
+```bash
+npm install
+```
+
+### 3. Запустите проект в режиме разработки
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+После запуска приложение будет доступно по адресу:
 
-## Code scaffolding
+👉 [http://localhost:4200](http://localhost:4200)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 🧱 Структура проекта
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- `src/app/slider` — основной компонент
+- `src/styles.css` — глобальные стили Tailwind
+- `src/app/app.config.ts` — конфигурация PrimeNG и темы
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## 💡 Особенности
 
-To build the project run:
+- Адаптивный интерфейс
+- Поддержка двух режимов отображения
+- Кастомизация PrimeNG через CSS custom properties
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📦 Используемые технологии
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular `v19+`
+- PrimeNG `v19+`
+- TailwindCSS `v4+`
+- TypeScript

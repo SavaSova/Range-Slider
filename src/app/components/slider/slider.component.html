@@ -1,4 +1,4 @@
-<div class="w-full max-w-[1347px] h-[227px] bg-white/10 rounded-xl p-6 flex gap-6 justify-center items-center">
+<div class="w-full max-w-[1347px] h-[227px] rounded-xl p-6 flex gap-6 justify-center items-center">
     <!-- Кнопки -->
     <div class="flex flex-col items-start gap-2 text-left font-raleway text-[14px] leading-[18px] font-semibold text-[#0167B3]">
       <button          
@@ -20,7 +20,7 @@
     </div>
   
     <!-- Слайдер и тултипы -->
-    <div class="relative flex-1 w-full max-w-[1117px]">
+    <div class="relative flex-1 w-full max-w-[1117px] mt-[30px]">
       <!-- Слайдер -->
       <p-slider
         [(ngModel)]="range"
@@ -29,29 +29,41 @@
         [min]="0"
         [max]="max"
         class="custom-slider w-full"
-        (onSlideEnd)="onSlide()"
-      ></p-slider>
-  
+        
+      ></p-slider>      
+
       <!-- Тултипы -->
       <ng-container *ngIf="range?.length === 2">
+        <!-- Первый тултип — сверху -->
         <div
-          class="absolute -top-10 transform -translate-x-1/2 bg-white text-blue-700 font-medium px-3 py-1 text-sm shadow rounded"
+          class="tooltip-box arrow-top"
           [style.left.%]="(range[0] / max) * 100"
+          style="top: -75px"
+          [innerHTML]="getTooltipText(range[0])"
         >
           {{ getTooltipText(range[0]) }}
         </div>
+      
+        <!-- Второй тултип — снизу -->
         <div
-          class="absolute -top-10 transform -translate-x-1/2 bg-white text-blue-700 font-medium px-3 py-1 text-sm shadow rounded"
+          class="tooltip-box arrow-bottom"
           [style.left.%]="(range[1] / max) * 100"
+          style="top: 25px"
+          [innerHTML]="getTooltipText(range[1])"
         >
           {{ getTooltipText(range[1]) }}
         </div>
       </ng-container>
   
       <!-- Деления -->
-      <div class="flex justify-between text-xs mt-3 text-gray-700">
+      <div class="flex justify-between mt-3 text-[14px] leading-[18px] font-raleway font-semibold text-[#999999]">
         <ng-container *ngFor="let tick of ticks">
-          <div class="text-center" [style.width.%]="100 / (ticks.length - 1)">
+          <div class="text-center"
+                [ngClass]="{
+                    'text-[#333333] font-semibold': isYearTick(tick),
+                    'text-[#999999]': !isYearTick(tick)
+                }"
+          >
             {{ getTickLabel(tick) }}
           </div>
         </ng-container>
