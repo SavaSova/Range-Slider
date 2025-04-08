@@ -1,6 +1,61 @@
-
-
-<div class="card flex justify-center p-6">
-    <!-- <input type="text" pInputText [(ngModel)]="rangeValues" class="w-full mb-4"/> -->
-    <p-slider [(ngModel)]="rangeValues" [range]="true" styleClass="w-56" />
-</div>
+<div class="w-full max-w-[1347px] h-[227px] bg-white/10 rounded-xl p-6 flex gap-6 justify-center items-center">
+    <!-- Кнопки -->
+    <div class="flex flex-col items-start gap-2 text-left font-raleway text-[14px] leading-[18px] font-semibold text-[#0167B3]">
+      <button          
+        (click)="setMode('years')"
+        [class.opacity-100]="mode === 'years'"
+        [class.opacity-50]="mode !== 'years'"
+        [class.underline]="mode !== 'years'"
+      >
+        Все года
+      </button>
+      <button          
+        (click)="setMode('months')"
+        [class.opacity-100]="mode === 'months'"
+        [class.opacity-50]="mode !== 'months'"
+        [class.underline]="mode !== 'months'"
+      >
+        Месяца
+      </button>
+    </div>
+  
+    <!-- Слайдер и тултипы -->
+    <div class="relative flex-1 w-full max-w-[1117px]">
+      <!-- Слайдер -->
+      <p-slider
+        [(ngModel)]="range"
+        [range]="true"
+        [step]="1"
+        [min]="0"
+        [max]="max"
+        class="custom-slider w-full"
+        (onSlideEnd)="onSlide()"
+      ></p-slider>
+  
+      <!-- Тултипы -->
+      <ng-container *ngIf="range?.length === 2">
+        <div
+          class="absolute -top-10 transform -translate-x-1/2 bg-white text-blue-700 font-medium px-3 py-1 text-sm shadow rounded"
+          [style.left.%]="(range[0] / max) * 100"
+        >
+          {{ getTooltipText(range[0]) }}
+        </div>
+        <div
+          class="absolute -top-10 transform -translate-x-1/2 bg-white text-blue-700 font-medium px-3 py-1 text-sm shadow rounded"
+          [style.left.%]="(range[1] / max) * 100"
+        >
+          {{ getTooltipText(range[1]) }}
+        </div>
+      </ng-container>
+  
+      <!-- Деления -->
+      <div class="flex justify-between text-xs mt-3 text-gray-700">
+        <ng-container *ngFor="let tick of ticks">
+          <div class="text-center" [style.width.%]="100 / (ticks.length - 1)">
+            {{ getTickLabel(tick) }}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  
