@@ -1,1 +1,8 @@
-<app-slider></app-slider>
+<app-slider
+  [startYearForYears]="2014"
+  [endYearForYears]="2020"
+  [startYearForMonths]="2015"
+  [endYearForMonths]="2016"
+  (rangeChange)="onRangeChanged($event)"
+></app-slider>
+

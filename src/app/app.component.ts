@@ -10,4 +10,8 @@ import { SliderComponent } from "./components/slider/slider.component";
 })
 export class AppComponent {
   title = 'slider';
+
+  onRangeChanged(range: number[]) {
+    console.log('Выбранный диапазон:', range);
+  }  
 }

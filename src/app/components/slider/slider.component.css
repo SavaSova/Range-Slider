@@ -54,3 +54,8 @@ body {
   --p-slider-handle-content-width: 10px !important;
   --p-slider-handle-content-height: 10px !important;
 }
+
+::ng-deep .p-slider-handle:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
