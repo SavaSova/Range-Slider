@@ -2,7 +2,7 @@
     <!-- Кнопки -->
     <div class="flex flex-col items-start gap-2 text-left font-raleway text-[14px] leading-[18px] font-semibold text-[#0167B3]">
       <button          
-        (click)="setMode('years')"
+        (click)="setMode(SliderMode.Years)"
         [class.opacity-100]="mode === 'years'"
         [class.opacity-50]="mode !== 'years'"
         [class.underline]="mode !== 'years'"
@@ -10,7 +10,7 @@
         Все года
       </button>
       <button          
-        (click)="setMode('months')"
+        (click)="setMode(SliderMode.Months)"
         [class.opacity-100]="mode === 'months'"
         [class.opacity-50]="mode !== 'months'"
         [class.underline]="mode !== 'months'"
@@ -39,9 +39,9 @@
           class="tooltip-box arrow-top"
           [style.left.%]="(range[0] / max) * 100"
           style="top: -75px"
-          [innerHTML]="getTooltipText(range[0])"
         >
-          {{ getTooltipText(range[0]) }}
+          <div>{{ getTooltipMonth(range[0]) }}</div>
+          <div>{{ getTooltipYear(range[0]) }}</div>
         </div>
       
         <!-- Второй тултип — снизу -->
@@ -49,9 +49,9 @@
           class="tooltip-box arrow-bottom"
           [style.left.%]="(range[1] / max) * 100"
           style="top: 25px"
-          [innerHTML]="getTooltipText(range[1])"
         >
-          {{ getTooltipText(range[1]) }}
+          <div>{{ getTooltipMonth(range[0]) }}</div>
+          <div>{{ getTooltipYear(range[0]) }}</div>
         </div>
       </ng-container>
   

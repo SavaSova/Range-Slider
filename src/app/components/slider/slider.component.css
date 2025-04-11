@@ -1,46 +1,56 @@
 .tooltip-box {
-    font-family: 'Raleway', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 24px;
-    color: #0167B3;
-    background: white;
-    border-radius: 8px;
-    padding: 4px 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    position: absolute;
-    transform: translateX(-50%);
-    white-space: nowrap;
-  }
-  
-  .tooltip-box.arrow-top::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 6px 6px 0 6px;
-    border-style: solid;
-    border-color: white transparent transparent transparent;
-  }
-  
-  .tooltip-box.arrow-bottom::after {
-    content: '';
-    position: absolute;
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 0 6px 6px 6px;
-    border-style: solid;
-    border-color: transparent transparent white transparent;
-  }
-  
-  body {
-    background-color: #E5E5E5;
-  }
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #0167B3;
+  background: white;
+  border-radius: 8px;
+  padding: 4px 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
 
-  ::ng-deep .p-slider-horizontal .p-slider-range {
-    top: 2px !important;
-    height: 6px !important;
-  }
+.tooltip-box.arrow-top::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+.tooltip-box.arrow-bottom::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 6px 6px 6px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+
+body {
+  background-color: #E5E5E5;
+}
+
+::ng-deep .p-slider-horizontal .p-slider-range {
+  top: 2px !important;
+  height: 6px !important;
+}
+
+::ng-deep :root {
+  --p-slider-range-background: #5CADEA !important;
+  --p-slider-track-background: #EDF1F8 !important;
+  --p-slider-border-radius: 100px !important;
+  --p-slider-track-size: 10px !important;
+  --p-content-border-color: #5CADEA !important;
+  --p-slider-handle-content-width: 10px !important;
+  --p-slider-handle-content-height: 10px !important;
+}
